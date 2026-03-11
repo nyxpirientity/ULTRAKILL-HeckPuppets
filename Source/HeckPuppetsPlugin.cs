@@ -9,6 +9,7 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
     {
         public const string HeckPuppets = "nyxpiri.heck-puppets";
     }
+
     [BepInPlugin("com.nyxpiri.bepinex.plugins.ultrakill.heck-puppets", "Heck Puppets", "0.0.0.1")]
     [BepInProcess("ULTRAKILL.exe")]
     public class HeckPuppetsPlugin : BaseUnityPlugin
@@ -19,6 +20,8 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
             HeckPuppetLeader.Initialize();
             HeckPuppetObserver.Initialize();
             NyxLib.Cheats.ReadyForCheatRegistration += RegisterCheats;
+
+            Options.Config = Config;
         }
 
         private void RegisterCheats(CheatsManager cheatsManager)
@@ -34,6 +37,14 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
                 }
             ), "HELL'S IMPACT");        
 
+        }
+
+        protected void OnApplicationFocus(bool hasFocus)
+        {
+            if (hasFocus)
+            {
+                Config.Reload();
+            }
         }
 
         protected void Start()
