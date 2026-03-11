@@ -38,7 +38,7 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
                 PuppetRootGo.transform.position = position + UnityEngine.Random.onUnitSphere * 2.5f;
                 PuppetRootGo.transform.rotation = rotation;
                 PuppetEad = PuppetRootGo.GetComponent<EnemyComponents>() ?? PuppetRootGo.GetComponentInChildren<EnemyComponents>();
-                PuppetRootGo.name = $"{PuppetRootGo.name} (UKAIW.HeckPuppet)";
+                PuppetRootGo.name = $"{PuppetRootGo.name} (Nyxpiri.HeckPuppet)";
                 Assert.IsNotNull(PuppetEad);
                 Assert.IsNotNull(PuppetEad.gameObject);
                 
@@ -91,6 +91,12 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
 
         private bool _ExcludedFromHeckPuppetCheat = false;
         public bool ExcludedFromHeckPuppetCheat { get => _ExcludedFromHeckPuppetCheat || (Eid.NullInvalid()?.puppet).GetValueOrDefault(true) || Eid.NullInvalid()?.enemyType == EnemyType.Wicked; }
+        public static int MonoRegistrarIdx { get; private set; }
+
+        internal static void Initialize()
+        {
+            MonoRegistrarIdx = EnemyComponents.MonoRegistrar.Register<HeckPuppet>();
+        }
 
         protected void Awake()
         {
@@ -126,7 +132,7 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
 
         protected void FixedUpdate()
         {
-            if (Cheats.IsCheatDisabled(Cheats.HeckPuppets) || ExcludedFromHeckPuppetCheat)
+            if (NyxLib.Cheats.IsCheatDisabled(Cheats.HeckPuppets) || ExcludedFromHeckPuppetCheat)
             {
                 return;
             }

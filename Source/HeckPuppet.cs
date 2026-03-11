@@ -11,6 +11,7 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
         public EnemyIdentifier Eid { get; private set; } = null;
         public EnemyComponents Enemy { get; private set; } = null;
         public bool GivePoints { get; set; } = true;
+
         public ulong HeckPuppetID = 0;
         public EnemyRadiance.Modifier RadianceMod = null;
 
@@ -134,7 +135,7 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
                 InstaKill();
             }
 
-            if (Cheats.IsCheatDisabled(Cheats.HeckPuppets))
+            if (NyxLib.Cheats.IsCheatDisabled(Cheats.HeckPuppets))
             {
                 GivePoints = false;
                 InstaKill();
@@ -226,6 +227,11 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
                 TryGivePoints();
                 PrevDead = true;
             }
+        }
+
+        internal void Initialize()
+        {
+            //MonoRegistrarIdx = EnemyComponents.MonoRegistrar.Register<HeckPuppet>();
         }
     }
 }

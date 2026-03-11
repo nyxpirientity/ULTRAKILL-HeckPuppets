@@ -13,6 +13,7 @@ namespace Nyxpiri.ULTRAKILL.NyxLib
         public int NumMiniBossHeckPuppetsCombo { get; private set; } = 0;
         public int NumBossHeckPuppetsCombo { get; private set; } = 0;
         public int NumUltraBossHeckPuppetsCombo { get; private set; } = 0;
+        public static int MonoRegistrarIdx { get; private set; }
 
         public void IncrementNormalPuppetsCombo()
         {
@@ -32,6 +33,11 @@ namespace Nyxpiri.ULTRAKILL.NyxLib
         public void IncrementUltraBossPuppetsCombo()
         {
             NumUltraBossHeckPuppetsCombo += 1;
+        }
+
+        internal static void Initialize()
+        {
+            MonoRegistrarIdx = Heck.MonoRegistrar.Register<HeckPuppetObserver>();
         }
 
         protected void Start()
