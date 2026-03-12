@@ -95,7 +95,7 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
 
         internal static void Initialize()
         {
-            MonoRegistrarIdx = EnemyComponents.MonoRegistrar.Register<HeckPuppet>();
+            MonoRegistrarIdx = EnemyComponents.MonoRegistrar.Register<HeckPuppetLeader>();
         }
 
         protected void Awake()
@@ -117,6 +117,11 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
             if (Eid.enemyType == EnemyType.Sisyphus || Eid.enemyType == EnemyType.Idol || Eid.gameObject.name.Contains("rain", StringComparison.OrdinalIgnoreCase) || Eid.gameObject.name.Contains("Mainframe", StringComparison.OrdinalIgnoreCase) || Eid.enemyType == EnemyType.Wicked || Eid.enemyType == EnemyType.V2 || Eid.enemyType == EnemyType.V2Second)
             {
                 _ExcludedFromHeckPuppetCheat = true;
+            }
+
+            if (GetComponent<MortarLauncher>() != null)
+            {
+                _ExcludedFromHeckPuppetCheat = true; // TODO: MortarLaunchers in the vanilla game have a bug where they can die multiple times, gonna need to fix that!
             }
 
             for (StyleRanks styleRank = 0; (int)styleRank < Style.NumStyleRanks; styleRank++)
@@ -178,7 +183,7 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
                 {
                     qualifierGameplayRank = EnemyGameplayRank.Boss;
                 }
-
+                
                 var options = Options.HeckPuppetsStyleEntries[styleRank].HeckPuppetsOptions[qualifierGameplayRank];
                 int intendedNumPuppets = options.NumHeckPuppets.Value;
                 

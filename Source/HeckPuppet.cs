@@ -11,6 +11,7 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
         public EnemyIdentifier Eid { get; private set; } = null;
         public EnemyComponents Enemy { get; private set; } = null;
         public bool GivePoints { get; set; } = true;
+        public bool Instakilled { get; private set; } = false;
 
         public ulong HeckPuppetID = 0;
         public EnemyRadiance.Modifier RadianceMod = null;
@@ -42,6 +43,7 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
                 Eid.machine.onDeath = new UnityEngine.Events.UnityEvent();
                 Eid.machine.destroyOnDeath = new GameObject[0];
             }
+            
             if (Eid.drone != null)
             {
                 FieldPublisher<Drone, bool> exploded = new FieldPublisher<Drone, bool>(Eid.drone, "exploded");
@@ -69,7 +71,9 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
                 TryDestroy();
                 return;
             }
+
             LeaderGo = Leader.gameObject;
+            
             Enemy.PreDeath += (instakill) =>
             {
                 Enemy.QueuedForDestruction = true;  
@@ -160,6 +164,12 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
                 return;
             }
 
+            if (Instakilled)
+            {
+                Log.Error($"{name} (HeckPuppet): had instakill called twice, and it almost went through!");
+                return;
+            }
+
             if (Eid.enemyType == EnemyType.Virtue)
             {
                 FieldPublisher<Drone, bool> exploded = new FieldPublisher<Drone, bool>(Eid.drone, "exploded");
@@ -170,6 +180,8 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
             TryDecrementRemainingBlood();
             
             MaybeDeathDestroy();
+
+            Instakilled = true;
         }
 
         private void MaybeDeathDestroy()

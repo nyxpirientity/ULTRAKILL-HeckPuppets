@@ -2,6 +2,7 @@
 using BepInEx;
 using Nyxpiri.ULTRAKILL.NyxLib;
 using System;
+using System.IO;
 
 namespace Nyxpiri.ULTRAKILL.HeckPuppets
 {
@@ -22,6 +23,12 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
             NyxLib.Cheats.ReadyForCheatRegistration += RegisterCheats;
 
             Options.Config = Config;
+            Options.Initialize();
+
+            if (!File.Exists(Config.ConfigFilePath))
+            {
+                Config.Save();
+            }
         }
 
         private void RegisterCheats(CheatsManager cheatsManager)
