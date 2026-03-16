@@ -56,7 +56,7 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
                     speedBuff *= 0.4f;
                 }
 
-                PuppetEad.Health = (Mathf.Min(options.MaxHeckPuppetHealth.Value, leader.Eid.Health * options.HeckPuppetHealthScalar.Value));
+                PuppetEad.Health = (Mathf.Min(options.MaxHeckPuppetHealth.Value, leader.Enemy.Health * options.HeckPuppetHealthScalar.Value));
                 var radianceMod = new EnemyRadiance.Modifier() 
                 {
                     HealthEnabled = options.HeckPuppetHealthBuffScalar.Value >= 0.0f,

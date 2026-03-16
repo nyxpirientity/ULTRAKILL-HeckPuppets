@@ -51,6 +51,8 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
             }
             
             Eid.PuppetSpawn();
+            EidPuppetSpawnTimer = new FieldPublisher<EnemyIdentifier, float>(Eid, "puppetSpawnTimer");
+            EidPuppetSpawnTimer.Value = 0.99f;
 
             var stray = Eid.GetComponent<ZombieProjectiles>();
             if (stray != null)
@@ -87,7 +89,6 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
         private int NumUpdates = 0;
         protected void Update()
         {
-
             if (Eid.machine != null && Eid.enemyType != EnemyType.Centaur)
             {
                 if (Eid.GetComponent<NavMeshAgent>() == null || Eid.GetComponent<Animator>() == null)
@@ -206,11 +207,6 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
 
         private void TryGivePoints()
         {
-            if (EidPuppetSpawnTimer != null && Eid != null)
-            {
-                EidPuppetSpawnTimer.Value = 1.0f;
-            }
-
             if (GivePoints)
             {
                 switch (GameplayRank)
