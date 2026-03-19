@@ -11,7 +11,7 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
         public const string HeckPuppets = "nyxpiri.heck-puppets";
     }
 
-    [BepInPlugin("com.nyxpiri.bepinex.plugins.ultrakill.heck-puppets", "Heck Puppets", "0.0.0.1")]
+    [BepInPlugin("nyxpiri.ultrakill.heck-puppets", "Heck Puppets", "0.0.0.1")]
     [BepInProcess("ULTRAKILL.exe")]
     public class HeckPuppetsPlugin : BaseUnityPlugin
     {
