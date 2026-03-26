@@ -98,18 +98,6 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
             }
         }
 
-        bool HasDecrementedBlood = false;
-        public void TryDecrementRemainingBlood()
-        {
-            if (HasDecrementedBlood)
-            {
-                return;
-            }
-
-            HasDecrementedBlood = true;
-            BloodOptimizer.DecrementRemainingBloodFxThisTick();
-        }
-
         internal bool PrevDead = false;
         protected void FixedUpdate()
         {
@@ -178,7 +166,6 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
             }
             
             Eid.InstaKill();
-            TryDecrementRemainingBlood();
             
             MaybeDeathDestroy();
 
