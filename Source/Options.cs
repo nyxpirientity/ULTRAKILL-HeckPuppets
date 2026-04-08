@@ -139,7 +139,7 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
                             {
                                 EnemyGameplayRank.Normal, new HeckPuppetStyleEntry.HeckPuppetOptions()
                                 {
-                                    NumHeckPuppets = Config.Bind($"Brutal.Normal", "NumHeckPuppets", 0),
+                                    NumHeckPuppets = Config.Bind($"Brutal.Normal", "NumHeckPuppets", 1),
                                     MaxHeckPuppetHealth = Config.Bind($"Brutal.Normal", "MaxHeckPuppetHealth", 10),
                                     HeckPuppetHealthScalar = Config.Bind($"Brutal.Normal", "HeckPuppetHealthScalar", 0.5f),
                                     HeckPuppetHealthBuffScalar = Config.Bind($"Brutal.Normal", "HeckPuppetHealthBuffScalar", 0.5f),
@@ -202,10 +202,10 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
                             {
                                 EnemyGameplayRank.Miniboss, new HeckPuppetStyleEntry.HeckPuppetOptions()
                                 {
-                                    NumHeckPuppets = Config.Bind($"Anarchic.Miniboss", "NumHeckPuppets", 0),
-                                    MaxHeckPuppetHealth = Config.Bind($"Anarchic.Miniboss", "MinibossMaxHeckPuppetHealth", 10),
+                                    NumHeckPuppets = Config.Bind($"Anarchic.Miniboss", "NumHeckPuppets", 1),
+                                    MaxHeckPuppetHealth = Config.Bind($"Anarchic.Miniboss", "MinibossMaxHeckPuppetHealth", 14),
                                     HeckPuppetHealthScalar = Config.Bind($"Anarchic.Miniboss", "HeckPuppetHealthScalar", 0.5f),
-                                    HeckPuppetHealthBuffScalar = Config.Bind($"Anarchic.Miniboss", "HeckPuppetHealthBuffScalar", 0.5f),
+                                    HeckPuppetHealthBuffScalar = Config.Bind($"Anarchic.Miniboss", "HeckPuppetHealthBuffScalar", 0.8f),
                                     HeckPuppetDamageBuffScalar = Config.Bind($"Anarchic.Miniboss", "HeckPuppetDamageBuffScalar", 0.5f),
                                     HeckPuppetSpeedBuffScalar = Config.Bind($"Anarchic.Miniboss", "HeckPuppetSpeedBuffScalar", 0.5f),
                                 }
@@ -243,11 +243,11 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
                             {
                                 EnemyGameplayRank.Normal, new HeckPuppetStyleEntry.HeckPuppetOptions()
                                 {
-                                    NumHeckPuppets = Config.Bind($"Supreme.Normal", "NumHeckPuppets", 0),
+                                    NumHeckPuppets = Config.Bind($"Supreme.Normal", "NumHeckPuppets", 1),
                                     MaxHeckPuppetHealth = Config.Bind($"Supreme.Normal", "MaxHeckPuppetHealth", 10),
-                                    HeckPuppetHealthScalar = Config.Bind($"Supreme.Normal", "HeckPuppetHealthScalar", 0.5f),
-                                    HeckPuppetHealthBuffScalar = Config.Bind($"Supreme.Normal", "HeckPuppetHealthBuffScalar", 0.5f),
-                                    HeckPuppetDamageBuffScalar = Config.Bind($"Supreme.Normal", "HeckPuppetDamageBuffScalar", 0.5f),
+                                    HeckPuppetHealthScalar = Config.Bind($"Supreme.Normal", "HeckPuppetHealthScalar", 0.76f),
+                                    HeckPuppetHealthBuffScalar = Config.Bind($"Supreme.Normal", "HeckPuppetHealthBuffScalar", 1.0f),
+                                    HeckPuppetDamageBuffScalar = Config.Bind($"Supreme.Normal", "HeckPuppetDamageBuffScalar", 0.75f),
                                     HeckPuppetSpeedBuffScalar = Config.Bind($"Supreme.Normal", "HeckPuppetSpeedBuffScalar", 0.5f),
                                 }
                             },
@@ -265,10 +265,10 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
                             {
                                 EnemyGameplayRank.Boss, new HeckPuppetStyleEntry.HeckPuppetOptions()
                                 {
-                                    NumHeckPuppets = Config.Bind($"Supreme.Boss", "NumHeckPuppets", 0),
-                                    MaxHeckPuppetHealth = Config.Bind($"Supreme.Boss", "MaxHeckPuppetHealth", 10),
-                                    HeckPuppetHealthScalar = Config.Bind($"Supreme.Boss", "HeckPuppetHealthScalar", 0.5f),
-                                    HeckPuppetHealthBuffScalar = Config.Bind($"Supreme.Boss", "HeckPuppetHealthBuffScalar", 0.5f),
+                                    NumHeckPuppets = Config.Bind($"Supreme.Boss", "NumHeckPuppets", 1),
+                                    MaxHeckPuppetHealth = Config.Bind($"Supreme.Boss", "MaxHeckPuppetHealth", 14),
+                                    HeckPuppetHealthScalar = Config.Bind($"Supreme.Boss", "HeckPuppetHealthScalar", 0.75f),
+                                    HeckPuppetHealthBuffScalar = Config.Bind($"Supreme.Boss", "HeckPuppetHealthBuffScalar", 0.8f),
                                     HeckPuppetDamageBuffScalar = Config.Bind($"Supreme.Boss", "HeckPuppetDamageBuffScalar", 0.5f),
                                     HeckPuppetSpeedBuffScalar = Config.Bind($"Supreme.Boss", "HeckPuppetSpeedBuffScalar", 0.5f),
                                 }
@@ -328,8 +328,8 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
                             {
                                 EnemyGameplayRank.Ultraboss, new HeckPuppetStyleEntry.HeckPuppetOptions()
                                 {
-                                    NumHeckPuppets = Config.Bind($"SSadistic.UltraBoss", "NumHeckPuppets", 0),
-                                    MaxHeckPuppetHealth = Config.Bind($"SSadistic.UltraBoss", "MaxHeckPuppetHealth", 10),
+                                    NumHeckPuppets = Config.Bind($"SSadistic.UltraBoss", "NumHeckPuppets", 1),
+                                    MaxHeckPuppetHealth = Config.Bind($"SSadistic.UltraBoss", "MaxHeckPuppetHealth", 20),
                                     HeckPuppetHealthScalar = Config.Bind($"SSadistic.UltraBoss", "HeckPuppetHealthScalar", 0.5f),
                                     HeckPuppetHealthBuffScalar = Config.Bind($"SSadistic.UltraBoss", "HeckPuppetHealthBuffScalar", 0.5f),
                                     HeckPuppetDamageBuffScalar = Config.Bind($"SSadistic.UltraBoss", "HeckPuppetDamageBuffScalar", 0.5f),
@@ -358,10 +358,10 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
                             {
                                 EnemyGameplayRank.Miniboss, new HeckPuppetStyleEntry.HeckPuppetOptions()
                                 {
-                                    NumHeckPuppets = Config.Bind($"SSSensoredStorm.Miniboss", "NumHeckPuppets", 0),
-                                    MaxHeckPuppetHealth = Config.Bind($"SSSensoredStorm.Miniboss", "MinibossMaxHeckPuppetHealth", 10),
+                                    NumHeckPuppets = Config.Bind($"SSSensoredStorm.Miniboss", "NumHeckPuppets", 1),
+                                    MaxHeckPuppetHealth = Config.Bind($"SSSensoredStorm.Miniboss", "MinibossMaxHeckPuppetHealth", 20),
                                     HeckPuppetHealthScalar = Config.Bind($"SSSensoredStorm.Miniboss", "HeckPuppetHealthScalar", 0.5f),
-                                    HeckPuppetHealthBuffScalar = Config.Bind($"SSSensoredStorm.Miniboss", "HeckPuppetHealthBuffScalar", 0.5f),
+                                    HeckPuppetHealthBuffScalar = Config.Bind($"SSSensoredStorm.Miniboss", "HeckPuppetHealthBuffScalar", 0.75f),
                                     HeckPuppetDamageBuffScalar = Config.Bind($"SSSensoredStorm.Miniboss", "HeckPuppetDamageBuffScalar", 0.5f),
                                     HeckPuppetSpeedBuffScalar = Config.Bind($"SSSensoredStorm.Miniboss", "HeckPuppetSpeedBuffScalar", 0.5f),
                                 }
@@ -373,7 +373,7 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
                                     MaxHeckPuppetHealth = Config.Bind($"SSSensoredStorm.Boss", "MaxHeckPuppetHealth", 10),
                                     HeckPuppetHealthScalar = Config.Bind($"SSSensoredStorm.Boss", "HeckPuppetHealthScalar", 0.5f),
                                     HeckPuppetHealthBuffScalar = Config.Bind($"SSSensoredStorm.Boss", "HeckPuppetHealthBuffScalar", 0.5f),
-                                    HeckPuppetDamageBuffScalar = Config.Bind($"SSSensoredStorm.Boss", "HeckPuppetDamageBuffScalar", 0.5f),
+                                    HeckPuppetDamageBuffScalar = Config.Bind($"SSSensoredStorm.Boss", "HeckPuppetDamageBuffScalar", 0.4f),
                                     HeckPuppetSpeedBuffScalar = Config.Bind($"SSSensoredStorm.Boss", "HeckPuppetSpeedBuffScalar", 0.5f),
                                 }
                             },
@@ -421,22 +421,22 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
                             {
                                 EnemyGameplayRank.Boss, new HeckPuppetStyleEntry.HeckPuppetOptions()
                                 {
-                                    NumHeckPuppets = Config.Bind($"ULTRAKILL.Boss", "NumHeckPuppets", 0),
-                                    MaxHeckPuppetHealth = Config.Bind($"ULTRAKILL.Boss", "MaxHeckPuppetHealth", 10),
+                                    NumHeckPuppets = Config.Bind($"ULTRAKILL.Boss", "NumHeckPuppets", 1),
+                                    MaxHeckPuppetHealth = Config.Bind($"ULTRAKILL.Boss", "MaxHeckPuppetHealth", 8),
                                     HeckPuppetHealthScalar = Config.Bind($"ULTRAKILL.Boss", "HeckPuppetHealthScalar", 0.5f),
                                     HeckPuppetHealthBuffScalar = Config.Bind($"ULTRAKILL.Boss", "HeckPuppetHealthBuffScalar", 0.5f),
-                                    HeckPuppetDamageBuffScalar = Config.Bind($"ULTRAKILL.Boss", "HeckPuppetDamageBuffScalar", 0.5f),
+                                    HeckPuppetDamageBuffScalar = Config.Bind($"ULTRAKILL.Boss", "HeckPuppetDamageBuffScalar", 0.4f),
                                     HeckPuppetSpeedBuffScalar = Config.Bind($"ULTRAKILL.Boss", "HeckPuppetSpeedBuffScalar", 0.5f),
                                 }
                             },
                             {
                                 EnemyGameplayRank.Ultraboss, new HeckPuppetStyleEntry.HeckPuppetOptions()
                                 {
-                                    NumHeckPuppets = Config.Bind($"ULTRAKILL.UltraBoss", "NumHeckPuppets", 0),
-                                    MaxHeckPuppetHealth = Config.Bind($"ULTRAKILL.UltraBoss", "MaxHeckPuppetHealth", 10),
+                                    NumHeckPuppets = Config.Bind($"ULTRAKILL.UltraBoss", "NumHeckPuppets", 1),
+                                    MaxHeckPuppetHealth = Config.Bind($"ULTRAKILL.UltraBoss", "MaxHeckPuppetHealth", 8),
                                     HeckPuppetHealthScalar = Config.Bind($"ULTRAKILL.UltraBoss", "HeckPuppetHealthScalar", 0.5f),
                                     HeckPuppetHealthBuffScalar = Config.Bind($"ULTRAKILL.UltraBoss", "HeckPuppetHealthBuffScalar", 0.5f),
-                                    HeckPuppetDamageBuffScalar = Config.Bind($"ULTRAKILL.UltraBoss", "HeckPuppetDamageBuffScalar", 0.5f),
+                                    HeckPuppetDamageBuffScalar = Config.Bind($"ULTRAKILL.UltraBoss", "HeckPuppetDamageBuffScalar", 0.4f),
                                     HeckPuppetSpeedBuffScalar = Config.Bind($"ULTRAKILL.UltraBoss", "HeckPuppetSpeedBuffScalar", 0.5f),
                                 }
                             },
