@@ -16,15 +16,19 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
                 public ConfigEntry<float> HeckPuppetHealthBuffScalar;
                 public ConfigEntry<float> HeckPuppetHealthScalar;
                 public ConfigEntry<int> MaxHeckPuppetHealth;
+                public ConfigEntry<float> RespawnDurationScalar;
             }
 
             public Dictionary<EnemyGameplayRank, HeckPuppetOptions> HeckPuppetsOptions = new Dictionary<EnemyGameplayRank, HeckPuppetOptions>();
         }
         
+        public static ConfigEntry<float> HeckPuppetRespawnDuration = null;
         public static Dictionary<StyleRanks, HeckPuppetStyleEntry> HeckPuppetsStyleEntries = new Dictionary<StyleRanks, HeckPuppetStyleEntry>();
 
         public static void Initialize()
         {
+            HeckPuppetRespawnDuration = Config.Bind($"Balance", "HeckPuppetRespawnDuration", 7.0f);
+
             HeckPuppetsStyleEntries = new Dictionary<StyleRanks, HeckPuppetStyleEntry>()
             {
                 {

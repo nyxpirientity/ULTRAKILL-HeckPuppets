@@ -219,7 +219,7 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
                         continue;
                     }
                     
-                    if (puppet.DeathTimestamp.TimeSince < 7.0)
+                    if (puppet.DeathTimestamp.TimeSince < Options.HeckPuppetRespawnDuration.Value)
                     {
                         continue;
                     }
