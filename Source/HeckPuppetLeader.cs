@@ -11,6 +11,7 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
         public class ManagedHeckPuppet
         {
             public HeckPuppet HeckPuppet { get; private set;} = null;
+            public float RespawnDurationScalar = 1.0f;
             public SceneTimeStamp DeathTimestamp = new SceneTimeStamp();
             public GameObject PuppetRootGo { get; private set; } = null;
             public EnemyComponents PuppetEad { get; private set; } = null;
@@ -209,6 +210,7 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
                         ManagedHeckPuppet managedHeckPuppet = new ManagedHeckPuppet();
                         managedHeckPuppet.DeathTimestamp.TimeStamp = 0.0;
                         puppets.Add(managedHeckPuppet);
+                        managedHeckPuppet.RespawnDurationScalar = options.RespawnDurationScalar.Value;;
                     }
                 }
 
@@ -219,7 +221,7 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
                         continue;
                     }
                     
-                    if (puppet.DeathTimestamp.TimeSince < Options.HeckPuppetRespawnDuration.Value)
+                    if (puppet.DeathTimestamp.TimeSince < Options.HeckPuppetRespawnDuration.Value * puppet.RespawnDurationScalar)
                     {
                         continue;
                     }

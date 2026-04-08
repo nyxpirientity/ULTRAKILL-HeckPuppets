@@ -45,6 +45,7 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
                                     HeckPuppetHealthBuffScalar = Config.Bind($"Destructive.Normal", "HeckPuppetHealthBuffScalar", 0.5f),
                                     HeckPuppetDamageBuffScalar = Config.Bind($"Destructive.Normal", "HeckPuppetDamageBuffScalar", 0.5f),
                                     HeckPuppetSpeedBuffScalar = Config.Bind($"Destructive.Normal", "HeckPuppetSpeedBuffScalar", 0.5f),
+                                    RespawnDurationScalar = Config.Bind($"Destructive.Normal", "HeckPuppetRespawnDurationScalar", 1.0f),
                                 }
                             },
                             {
@@ -56,6 +57,7 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
                                     HeckPuppetHealthBuffScalar = Config.Bind($"Destructive.Miniboss", "HeckPuppetHealthBuffScalar", 0.5f),
                                     HeckPuppetDamageBuffScalar = Config.Bind($"Destructive.Miniboss", "HeckPuppetDamageBuffScalar", 0.5f),
                                     HeckPuppetSpeedBuffScalar = Config.Bind($"Destructive.Miniboss", "HeckPuppetSpeedBuffScalar", 0.5f),
+                                    RespawnDurationScalar = Config.Bind($"Destructive.Miniboss", "HeckPuppetRespawnDurationScalar", 1.0f),
                                 }
                             },
                             {
@@ -67,6 +69,7 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
                                     HeckPuppetHealthBuffScalar = Config.Bind($"Destructive.Boss", "HeckPuppetHealthBuffScalar", 0.5f),
                                     HeckPuppetDamageBuffScalar = Config.Bind($"Destructive.Boss", "HeckPuppetDamageBuffScalar", 0.5f),
                                     HeckPuppetSpeedBuffScalar = Config.Bind($"Destructive.Boss", "HeckPuppetSpeedBuffScalar", 0.5f),
+                                    RespawnDurationScalar = Config.Bind($"Destructive.Boss", "HeckPuppetRespawnDurationScalar", 1.0f),
                                 }
                             },
                             {
@@ -78,6 +81,7 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
                                     HeckPuppetHealthBuffScalar = Config.Bind($"Destructive.UltraBoss", "HeckPuppetHealthBuffScalar", 0.5f),
                                     HeckPuppetDamageBuffScalar = Config.Bind($"Destructive.UltraBoss", "HeckPuppetDamageBuffScalar", 0.5f),
                                     HeckPuppetSpeedBuffScalar = Config.Bind($"Destructive.UltraBoss", "HeckPuppetSpeedBuffScalar", 0.5f),
+                                    RespawnDurationScalar = Config.Bind($"Destructive.UltraBoss", "HeckPuppetRespawnDurationScalar", 1.0f),
                                 }
                             },
                         }
@@ -97,6 +101,7 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
                                     HeckPuppetHealthBuffScalar = Config.Bind($"Chaotic.Normal", "HeckPuppetHealthBuffScalar", 0.5f),
                                     HeckPuppetDamageBuffScalar = Config.Bind($"Chaotic.Normal", "HeckPuppetDamageBuffScalar", 0.5f),
                                     HeckPuppetSpeedBuffScalar = Config.Bind($"Chaotic.Normal", "HeckPuppetSpeedBuffScalar", 0.5f),
+                                    RespawnDurationScalar = Config.Bind($"Chaotic.Normal", "HeckPuppetRespawnDurationScalar", 1.0f),
                                 }
                             },
                             {
@@ -108,6 +113,7 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
                                     HeckPuppetHealthBuffScalar = Config.Bind($"Chaotic.Miniboss", "HeckPuppetHealthBuffScalar", 0.5f),
                                     HeckPuppetDamageBuffScalar = Config.Bind($"Chaotic.Miniboss", "HeckPuppetDamageBuffScalar", 0.5f),
                                     HeckPuppetSpeedBuffScalar = Config.Bind($"Chaotic.Miniboss", "HeckPuppetSpeedBuffScalar", 0.5f),
+                                    RespawnDurationScalar = Config.Bind($"Chaotic.Miniboss", "HeckPuppetRespawnDurationScalar", 1.0f),
                                 }
                             },
                             {
@@ -119,6 +125,7 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
                                     HeckPuppetHealthBuffScalar = Config.Bind($"Chaotic.Boss", "HeckPuppetHealthBuffScalar", 0.5f),
                                     HeckPuppetDamageBuffScalar = Config.Bind($"Chaotic.Boss", "HeckPuppetDamageBuffScalar", 0.5f),
                                     HeckPuppetSpeedBuffScalar = Config.Bind($"Chaotic.Boss", "HeckPuppetSpeedBuffScalar", 0.5f),
+                                    RespawnDurationScalar = Config.Bind($"Chaotic.Boss", "HeckPuppetRespawnDurationScalar", 1.0f),
                                 }
                             },
                             {
@@ -130,6 +137,7 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
                                     HeckPuppetHealthBuffScalar = Config.Bind($"Chaotic.UltraBoss", "HeckPuppetHealthBuffScalar", 0.5f),
                                     HeckPuppetDamageBuffScalar = Config.Bind($"Chaotic.UltraBoss", "HeckPuppetDamageBuffScalar", 0.5f),
                                     HeckPuppetSpeedBuffScalar = Config.Bind($"Chaotic.UltraBoss", "HeckPuppetSpeedBuffScalar", 0.5f),
+                                    RespawnDurationScalar = Config.Bind($"Chaotic.UltraBoss", "HeckPuppetRespawnDurationScalar", 1.0f),
                                 }
                             },
                         }
@@ -149,6 +157,7 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
                                     HeckPuppetHealthBuffScalar = Config.Bind($"Brutal.Normal", "HeckPuppetHealthBuffScalar", 0.5f),
                                     HeckPuppetDamageBuffScalar = Config.Bind($"Brutal.Normal", "HeckPuppetDamageBuffScalar", 0.5f),
                                     HeckPuppetSpeedBuffScalar = Config.Bind($"Brutal.Normal", "HeckPuppetSpeedBuffScalar", 0.5f),
+                                    RespawnDurationScalar = Config.Bind($"Brutal.Normal", "HeckPuppetRespawnDurationScalar", 1.0f),
                                 }
                             },
                             {
@@ -160,6 +169,7 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
                                     HeckPuppetHealthBuffScalar = Config.Bind($"Brutal.Miniboss", "HeckPuppetHealthBuffScalar", 0.5f),
                                     HeckPuppetDamageBuffScalar = Config.Bind($"Brutal.Miniboss", "HeckPuppetDamageBuffScalar", 0.5f),
                                     HeckPuppetSpeedBuffScalar = Config.Bind($"Brutal.Miniboss", "HeckPuppetSpeedBuffScalar", 0.5f),
+                                    RespawnDurationScalar = Config.Bind($"Brutal.Miniboss", "HeckPuppetRespawnDurationScalar", 1.0f),
                                 }
                             },
                             {
@@ -171,6 +181,7 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
                                     HeckPuppetHealthBuffScalar = Config.Bind($"Brutal.Boss", "HeckPuppetHealthBuffScalar", 0.5f),
                                     HeckPuppetDamageBuffScalar = Config.Bind($"Brutal.Boss", "HeckPuppetDamageBuffScalar", 0.5f),
                                     HeckPuppetSpeedBuffScalar = Config.Bind($"Brutal.Boss", "HeckPuppetSpeedBuffScalar", 0.5f),
+                                    RespawnDurationScalar = Config.Bind($"Brutal.Boss", "HeckPuppetRespawnDurationScalar", 1.0f),
                                 }
                             },
                             {
@@ -182,6 +193,7 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
                                     HeckPuppetHealthBuffScalar = Config.Bind($"Brutal.UltraBoss", "HeckPuppetHealthBuffScalar", 0.5f),
                                     HeckPuppetDamageBuffScalar = Config.Bind($"Brutal.UltraBoss", "HeckPuppetDamageBuffScalar", 0.5f),
                                     HeckPuppetSpeedBuffScalar = Config.Bind($"Brutal.UltraBoss", "HeckPuppetSpeedBuffScalar", 0.5f),
+                                    RespawnDurationScalar = Config.Bind($"Brutal.UltraBoss", "HeckPuppetRespawnDurationScalar", 1.0f),
                                 }
                             },
                         }
@@ -201,6 +213,7 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
                                     HeckPuppetHealthBuffScalar = Config.Bind($"Anarchic.Normal", "HeckPuppetHealthBuffScalar", 0.5f),
                                     HeckPuppetDamageBuffScalar = Config.Bind($"Anarchic.Normal", "HeckPuppetDamageBuffScalar", 0.5f),
                                     HeckPuppetSpeedBuffScalar = Config.Bind($"Anarchic.Normal", "HeckPuppetSpeedBuffScalar", 0.5f),
+                                    RespawnDurationScalar = Config.Bind($"Anarchic.Normal", "HeckPuppetRespawnDurationScalar", 1.0f),
                                 }
                             },
                             {
@@ -212,6 +225,7 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
                                     HeckPuppetHealthBuffScalar = Config.Bind($"Anarchic.Miniboss", "HeckPuppetHealthBuffScalar", 0.8f),
                                     HeckPuppetDamageBuffScalar = Config.Bind($"Anarchic.Miniboss", "HeckPuppetDamageBuffScalar", 0.5f),
                                     HeckPuppetSpeedBuffScalar = Config.Bind($"Anarchic.Miniboss", "HeckPuppetSpeedBuffScalar", 0.5f),
+                                    RespawnDurationScalar = Config.Bind($"Anarchic.Miniboss", "HeckPuppetRespawnDurationScalar", 1.0f),
                                 }
                             },
                             {
@@ -223,6 +237,7 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
                                     HeckPuppetHealthBuffScalar = Config.Bind($"Anarchic.Boss", "HeckPuppetHealthBuffScalar", 0.5f),
                                     HeckPuppetDamageBuffScalar = Config.Bind($"Anarchic.Boss", "HeckPuppetDamageBuffScalar", 0.5f),
                                     HeckPuppetSpeedBuffScalar = Config.Bind($"Anarchic.Boss", "HeckPuppetSpeedBuffScalar", 0.5f),
+                                    RespawnDurationScalar = Config.Bind($"Anarchic.Boss", "HeckPuppetRespawnDurationScalar", 1.0f),
                                 }
                             },
                             {
@@ -234,6 +249,7 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
                                     HeckPuppetHealthBuffScalar = Config.Bind($"Anarchic.UltraBoss", "HeckPuppetHealthBuffScalar", 0.5f),
                                     HeckPuppetDamageBuffScalar = Config.Bind($"Anarchic.UltraBoss", "HeckPuppetDamageBuffScalar", 0.5f),
                                     HeckPuppetSpeedBuffScalar = Config.Bind($"Anarchic.UltraBoss", "HeckPuppetSpeedBuffScalar", 0.5f),
+                                    RespawnDurationScalar = Config.Bind($"Anarchic.UltraBoss", "HeckPuppetRespawnDurationScalar", 1.0f),
                                 }
                             },
                         }
@@ -253,6 +269,7 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
                                     HeckPuppetHealthBuffScalar = Config.Bind($"Supreme.Normal", "HeckPuppetHealthBuffScalar", 1.0f),
                                     HeckPuppetDamageBuffScalar = Config.Bind($"Supreme.Normal", "HeckPuppetDamageBuffScalar", 0.75f),
                                     HeckPuppetSpeedBuffScalar = Config.Bind($"Supreme.Normal", "HeckPuppetSpeedBuffScalar", 0.5f),
+                                    RespawnDurationScalar = Config.Bind($"Supreme.Normal", "HeckPuppetRespawnDurationScalar", 2.0f),
                                 }
                             },
                             {
@@ -264,6 +281,7 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
                                     HeckPuppetHealthBuffScalar = Config.Bind($"Supreme.Miniboss", "HeckPuppetHealthBuffScalar", 0.5f),
                                     HeckPuppetDamageBuffScalar = Config.Bind($"Supreme.Miniboss", "HeckPuppetDamageBuffScalar", 0.5f),
                                     HeckPuppetSpeedBuffScalar = Config.Bind($"Supreme.Miniboss", "HeckPuppetSpeedBuffScalar", 0.5f),
+                                    RespawnDurationScalar = Config.Bind($"Supreme.Miniboss", "HeckPuppetRespawnDurationScalar", 1.0f),
                                 }
                             },
                             {
@@ -275,6 +293,7 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
                                     HeckPuppetHealthBuffScalar = Config.Bind($"Supreme.Boss", "HeckPuppetHealthBuffScalar", 0.8f),
                                     HeckPuppetDamageBuffScalar = Config.Bind($"Supreme.Boss", "HeckPuppetDamageBuffScalar", 0.5f),
                                     HeckPuppetSpeedBuffScalar = Config.Bind($"Supreme.Boss", "HeckPuppetSpeedBuffScalar", 0.5f),
+                                    RespawnDurationScalar = Config.Bind($"Supreme.Boss", "HeckPuppetRespawnDurationScalar", 1.2f),
                                 }
                             },
                             {
@@ -286,6 +305,7 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
                                     HeckPuppetHealthBuffScalar = Config.Bind($"Supreme.UltraBoss", "HeckPuppetHealthBuffScalar", 0.5f),
                                     HeckPuppetDamageBuffScalar = Config.Bind($"Supreme.UltraBoss", "HeckPuppetDamageBuffScalar", 0.5f),
                                     HeckPuppetSpeedBuffScalar = Config.Bind($"Supreme.UltraBoss", "HeckPuppetSpeedBuffScalar", 0.5f),
+                                    RespawnDurationScalar = Config.Bind($"Supreme.UltraBoss", "HeckPuppetRespawnDurationScalar", 1.0f),
                                 }
                             },
                         }
@@ -305,6 +325,7 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
                                     HeckPuppetHealthBuffScalar = Config.Bind($"SSadistic.Normal", "HeckPuppetHealthBuffScalar", 0.5f),
                                     HeckPuppetDamageBuffScalar = Config.Bind($"SSadistic.Normal", "HeckPuppetDamageBuffScalar", 0.5f),
                                     HeckPuppetSpeedBuffScalar = Config.Bind($"SSadistic.Normal", "HeckPuppetSpeedBuffScalar", 0.5f),
+                                    RespawnDurationScalar = Config.Bind($"SSadistic.Normal", "HeckPuppetRespawnDurationScalar", 1.0f),
                                 }
                             },
                             {
@@ -316,6 +337,7 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
                                     HeckPuppetHealthBuffScalar = Config.Bind($"SSadistic.Miniboss", "HeckPuppetHealthBuffScalar", 0.5f),
                                     HeckPuppetDamageBuffScalar = Config.Bind($"SSadistic.Miniboss", "HeckPuppetDamageBuffScalar", 0.5f),
                                     HeckPuppetSpeedBuffScalar = Config.Bind($"SSadistic.Miniboss", "HeckPuppetSpeedBuffScalar", 0.5f),
+                                    RespawnDurationScalar = Config.Bind($"SSadistic.Miniboss", "HeckPuppetRespawnDurationScalar", 1.0f),
                                 }
                             },
                             {
@@ -327,6 +349,7 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
                                     HeckPuppetHealthBuffScalar = Config.Bind($"SSadistic.Boss", "HeckPuppetHealthBuffScalar", 0.5f),
                                     HeckPuppetDamageBuffScalar = Config.Bind($"SSadistic.Boss", "HeckPuppetDamageBuffScalar", 0.5f),
                                     HeckPuppetSpeedBuffScalar = Config.Bind($"SSadistic.Boss", "HeckPuppetSpeedBuffScalar", 0.5f),
+                                    RespawnDurationScalar = Config.Bind($"SSadistic.Boss", "HeckPuppetRespawnDurationScalar", 1.0f),
                                 }
                             },
                             {
@@ -338,6 +361,7 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
                                     HeckPuppetHealthBuffScalar = Config.Bind($"SSadistic.UltraBoss", "HeckPuppetHealthBuffScalar", 0.5f),
                                     HeckPuppetDamageBuffScalar = Config.Bind($"SSadistic.UltraBoss", "HeckPuppetDamageBuffScalar", 0.5f),
                                     HeckPuppetSpeedBuffScalar = Config.Bind($"SSadistic.UltraBoss", "HeckPuppetSpeedBuffScalar", 0.5f),
+                                    RespawnDurationScalar = Config.Bind($"SSadistic.UltraBoss", "HeckPuppetRespawnDurationScalar", 1.5f),
                                 }
                             },
                         }
@@ -357,6 +381,7 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
                                     HeckPuppetHealthBuffScalar = Config.Bind($"SSSensoredStorm.Normal", "HeckPuppetHealthBuffScalar", 0.5f),
                                     HeckPuppetDamageBuffScalar = Config.Bind($"SSSensoredStorm.Normal", "HeckPuppetDamageBuffScalar", 0.5f),
                                     HeckPuppetSpeedBuffScalar = Config.Bind($"SSSensoredStorm.Normal", "HeckPuppetSpeedBuffScalar", 0.5f),
+                                    RespawnDurationScalar = Config.Bind($"SSSensoredStorm.Normal", "HeckPuppetRespawnDurationScalar", 1.0f),
                                 }
                             },
                             {
@@ -368,6 +393,7 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
                                     HeckPuppetHealthBuffScalar = Config.Bind($"SSSensoredStorm.Miniboss", "HeckPuppetHealthBuffScalar", 0.75f),
                                     HeckPuppetDamageBuffScalar = Config.Bind($"SSSensoredStorm.Miniboss", "HeckPuppetDamageBuffScalar", 0.5f),
                                     HeckPuppetSpeedBuffScalar = Config.Bind($"SSSensoredStorm.Miniboss", "HeckPuppetSpeedBuffScalar", 0.5f),
+                                    RespawnDurationScalar = Config.Bind($"SSSensoredStorm.Miniboss", "HeckPuppetRespawnDurationScalar", 1.25f),
                                 }
                             },
                             {
@@ -379,6 +405,7 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
                                     HeckPuppetHealthBuffScalar = Config.Bind($"SSSensoredStorm.Boss", "HeckPuppetHealthBuffScalar", 0.5f),
                                     HeckPuppetDamageBuffScalar = Config.Bind($"SSSensoredStorm.Boss", "HeckPuppetDamageBuffScalar", 0.4f),
                                     HeckPuppetSpeedBuffScalar = Config.Bind($"SSSensoredStorm.Boss", "HeckPuppetSpeedBuffScalar", 0.5f),
+                                    RespawnDurationScalar = Config.Bind($"SSSensoredStorm.Boss", "HeckPuppetRespawnDurationScalar", 1.0f),
                                 }
                             },
                             {
@@ -390,6 +417,7 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
                                     HeckPuppetHealthBuffScalar = Config.Bind($"SSSensoredStorm.UltraBoss", "HeckPuppetHealthBuffScalar", 0.5f),
                                     HeckPuppetDamageBuffScalar = Config.Bind($"SSSensoredStorm.UltraBoss", "HeckPuppetDamageBuffScalar", 0.5f),
                                     HeckPuppetSpeedBuffScalar = Config.Bind($"SSSensoredStorm.UltraBoss", "HeckPuppetSpeedBuffScalar", 0.5f),
+                                    RespawnDurationScalar = Config.Bind($"SSSensoredStorm.UltraBoss", "HeckPuppetRespawnDurationScalar", 1.0f),
                                 }
                             },
                         }
@@ -409,6 +437,7 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
                                     HeckPuppetHealthBuffScalar = Config.Bind($"ULTRAKILL.Normal", "HeckPuppetHealthBuffScalar", 0.5f),
                                     HeckPuppetDamageBuffScalar = Config.Bind($"ULTRAKILL.Normal", "HeckPuppetDamageBuffScalar", 0.5f),
                                     HeckPuppetSpeedBuffScalar = Config.Bind($"ULTRAKILL.Normal", "HeckPuppetSpeedBuffScalar", 0.5f),
+                                    RespawnDurationScalar = Config.Bind($"ULTRAKILL.Normal", "HeckPuppetRespawnDurationScalar", 1.0f),
                                 }
                             },
                             {
@@ -420,6 +449,7 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
                                     HeckPuppetHealthBuffScalar = Config.Bind($"ULTRAKILL.Miniboss", "HeckPuppetHealthBuffScalar", 0.5f),
                                     HeckPuppetDamageBuffScalar = Config.Bind($"ULTRAKILL.Miniboss", "HeckPuppetDamageBuffScalar", 0.5f),
                                     HeckPuppetSpeedBuffScalar = Config.Bind($"ULTRAKILL.Miniboss", "HeckPuppetSpeedBuffScalar", 0.5f),
+                                    RespawnDurationScalar = Config.Bind($"ULTRAKILL.Miniboss", "HeckPuppetRespawnDurationScalar", 1.0f),
                                 }
                             },
                             {
@@ -431,6 +461,7 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
                                     HeckPuppetHealthBuffScalar = Config.Bind($"ULTRAKILL.Boss", "HeckPuppetHealthBuffScalar", 0.5f),
                                     HeckPuppetDamageBuffScalar = Config.Bind($"ULTRAKILL.Boss", "HeckPuppetDamageBuffScalar", 0.4f),
                                     HeckPuppetSpeedBuffScalar = Config.Bind($"ULTRAKILL.Boss", "HeckPuppetSpeedBuffScalar", 0.5f),
+                                    RespawnDurationScalar = Config.Bind($"ULTRAKILL.Boss", "HeckPuppetRespawnDurationScalar", 1.5f),
                                 }
                             },
                             {
@@ -442,6 +473,7 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
                                     HeckPuppetHealthBuffScalar = Config.Bind($"ULTRAKILL.UltraBoss", "HeckPuppetHealthBuffScalar", 0.5f),
                                     HeckPuppetDamageBuffScalar = Config.Bind($"ULTRAKILL.UltraBoss", "HeckPuppetDamageBuffScalar", 0.4f),
                                     HeckPuppetSpeedBuffScalar = Config.Bind($"ULTRAKILL.UltraBoss", "HeckPuppetSpeedBuffScalar", 0.5f),
+                                    RespawnDurationScalar = Config.Bind($"ULTRAKILL.UltraBoss", "HeckPuppetRespawnDurationScalar", 1.5f),
                                 }
                             },
                         }
