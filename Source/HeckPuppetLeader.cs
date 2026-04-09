@@ -41,7 +41,7 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
 
                 bool rightSpawn = (numHeckPuppets % 2) == 0;
                 
-                var offset = Vector3.Project(((((EnemyUtils.SolveEnemyBounds(leader.Enemy.RootGameObject).size * 0.5f) * ((float)numHeckPuppets * 0.5f)))), rotation * ((Vector3.right)));
+                var offset = Vector3.Project(((((EnemyUtils.SolveEnemyBounds(leader.Enemy).size * 0.5f) * ((float)numHeckPuppets * 0.5f)))), rotation * ((Vector3.right)));
              
                 offset *= rightSpawn ? 1.0f : -1.0f;
 

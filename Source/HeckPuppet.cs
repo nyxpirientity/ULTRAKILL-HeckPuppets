@@ -78,6 +78,7 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
             
             Enemy.PreDeath += (canceler, instakill) =>
             {
+                Enemy.AvoidHealthBasedSlowDown = true;
                 Enemy.QueuedForDestruction = true;  
             };
             Enemy.PostDeath += ((cancelInfo, instakill) =>
