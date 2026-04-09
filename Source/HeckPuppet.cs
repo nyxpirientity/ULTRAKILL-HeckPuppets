@@ -76,11 +76,11 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
 
             LeaderGo = Leader.gameObject;
             
-            Enemy.PreDeath += (instakill) =>
+            Enemy.PreDeath += (canceler, instakill) =>
             {
                 Enemy.QueuedForDestruction = true;  
             };
-            Enemy.PostDeath += ((instakill) =>
+            Enemy.PostDeath += ((cancelInfo, instakill) =>
             {
                 MaybeDeathDestroy();
             });

@@ -32,11 +32,30 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
             }
 
             private static ulong NextHeckPuppetID = 0;
-            internal void Spawn(Vector3 position, Quaternion rotation, HeckPuppetLeader leader, StyleRanks styleRank, Options.HeckPuppetStyleEntry.HeckPuppetOptions options)
+            internal void Spawn(Vector3 position, Quaternion rotation, HeckPuppetLeader leader, StyleRanks styleRank, Options.HeckPuppetStyleEntry.HeckPuppetOptions options, int numHeckPuppets)
             {   
                 HeckPuppetID = NextHeckPuppetID;
                 PuppetRootGo = leader.Enemy.PrefabStore.Instances.GetNewInstance();
-                PuppetRootGo.transform.position = position + UnityEngine.Random.onUnitSphere * 2.5f;
+                
+                numHeckPuppets += 1;
+
+                bool rightSpawn = (numHeckPuppets % 2) == 0;
+                
+                var offset = Vector3.Project(((((EnemyUtils.SolveEnemyBounds(leader.Enemy.RootGameObject).size * 0.5f) * ((float)numHeckPuppets * 0.5f)))), rotation * ((Vector3.right)));
+             
+                offset *= rightSpawn ? 1.0f : -1.0f;
+
+                if (leader.Eid.enemyType == EnemyType.HideousMass)
+                {
+                    offset *= 0.1f;
+                }
+                else if (leader.Eid.enemyType == EnemyType.Minos)
+                {
+                    offset *= 0.0f;
+                }
+
+                PuppetRootGo.transform.position = position + offset;
+   
                 PuppetRootGo.transform.rotation = rotation;
                 PuppetEad = PuppetRootGo.GetComponent<EnemyComponents>() ?? PuppetRootGo.GetComponentInChildren<EnemyComponents>();
                 PuppetRootGo.name = $"{PuppetRootGo.name} (Nyxpiri.HeckPuppet)";
@@ -143,6 +162,14 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
                 return;
             }
 
+            int numHeckPuppets = 0;
+            
+            for (StyleRanks styleRank = 0; (int)styleRank < Style.NumStyleRanks; styleRank++)
+            {
+                List<ManagedHeckPuppet> puppets = Puppets[styleRank];
+                numHeckPuppets += puppets.Count;
+            }
+
             for (StyleRanks styleRank = 0; (int)styleRank < Style.NumStyleRanks; styleRank++)
             {
                 List<ManagedHeckPuppet> puppets = Puppets[styleRank];
@@ -228,7 +255,8 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
 
                     bool isMalFace = Eid.enemyType == EnemyType.MaliciousFace;
                     puppet.Nullify();
-                    puppet.Spawn(isMalFace ? transform.parent.position : transform.position, isMalFace ? transform.parent.rotation : transform.rotation, this, styleRank, options);
+                    puppet.Spawn(isMalFace ? transform.parent.position : transform.position, isMalFace ? transform.parent.rotation : transform.rotation, this, styleRank, options, numHeckPuppets);
+                    numHeckPuppets += 1;
                 }
             }
         }
