@@ -263,7 +263,7 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
                             {
                                 EnemyGameplayRank.Normal, new HeckPuppetStyleEntry.HeckPuppetOptions()
                                 {
-                                    NumHeckPuppets = Config.Bind($"Supreme.Normal", "NumHeckPuppets", 1),
+                                    NumHeckPuppets = Config.Bind($"Supreme.Normal", "NumHeckPuppets", 0),
                                     MaxHeckPuppetHealth = Config.Bind($"Supreme.Normal", "MaxHeckPuppetHealth", 10),
                                     HeckPuppetHealthScalar = Config.Bind($"Supreme.Normal", "HeckPuppetHealthScalar", 0.76f),
                                     HeckPuppetHealthBuffScalar = Config.Bind($"Supreme.Normal", "HeckPuppetHealthBuffScalar", 1.0f),

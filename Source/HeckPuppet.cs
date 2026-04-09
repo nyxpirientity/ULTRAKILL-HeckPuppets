@@ -8,7 +8,7 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
     {
         public GameObject LeaderGo = null;
         public HeckPuppetLeader Leader = null;
-        public EnemyIdentifier Eid { get; private set; } = null;
+        public EnemyIdentifier Eid => Enemy.Eid;
         public EnemyComponents Enemy { get; private set; } = null;
         public bool GivePoints { get; set; } = true;
         public bool Instakilled { get; private set; } = false;
@@ -22,14 +22,28 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
 
         protected void Awake()
         {
-            Eid = GetComponent<EnemyIdentifier>();
-            Eid.dontCountAsKills = true;
+            Enemy = GetComponent<EnemyComponents>();
+            Eid.dontCountAsKills = true;     
+
+            if (Eid.drone != null)
+            {
+                FieldPublisher<Drone, bool> exploded = new FieldPublisher<Drone, bool>(Eid.drone, "exploded");
+                exploded.Value = true;
+            }
+
+            Enemy.PreDeath += (canceler, instakill) =>
+            {
+                Enemy.AvoidHealthBasedSlowDown = true;
+                Enemy.QueuedForDestruction = true;  
+            };
+            Enemy.PostDeath += ((cancelInfo, instakill) =>
+            {
+                MaybeDeathDestroy();
+            });
         }
 
         protected void Start()
         {
-            Enemy = GetComponent<EnemyComponents>();
-
             if (!GetComponent<DestroyOnCheckpointRestart>())
             {
                 gameObject.AddComponent<DestroyOnCheckpointRestart>();
@@ -43,13 +57,7 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
                 Eid.machine.onDeath = new UnityEngine.Events.UnityEvent();
                 Eid.machine.destroyOnDeath = new GameObject[0];
             }
-            
-            if (Eid.drone != null)
-            {
-                FieldPublisher<Drone, bool> exploded = new FieldPublisher<Drone, bool>(Eid.drone, "exploded");
-                exploded.Value = true;
-            }
-            
+
             Eid.PuppetSpawn();
             EidPuppetSpawnTimer = new FieldPublisher<EnemyIdentifier, float>(Eid, "puppetSpawnTimer");
             EidPuppetSpawnTimer.Value = 0.99f;
@@ -75,16 +83,6 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
             }
 
             LeaderGo = Leader.gameObject;
-            
-            Enemy.PreDeath += (canceler, instakill) =>
-            {
-                Enemy.AvoidHealthBasedSlowDown = true;
-                Enemy.QueuedForDestruction = true;  
-            };
-            Enemy.PostDeath += ((cancelInfo, instakill) =>
-            {
-                MaybeDeathDestroy();
-            });
         }
 
         private int NumUpdates = 0;
