@@ -69,22 +69,19 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
                 PuppetRootGo.SetActive(true);
                 PuppetEad.gameObject.SetActive(true);
                 
-                float speedBuff = options.HeckPuppetSpeedBuffScalar.Value;
+                float speedBuff = options.HeckPuppetSpeedBuffScalar.Value * Options.SpeedBuffScalar.Value;
+                float damageBuff = options.HeckPuppetDamageBuffScalar.Value * Options.DamageBuffScalar.Value;
+                float healthBuff = options.HeckPuppetHealthBuffScalar.Value * Options.HealthBuffScalar.Value;
 
-                if (leader.Eid.enemyType == EnemyType.Virtue) // probably should be more configurable in the future but virtues seem quite disproportionately powerful.
-                {
-                    speedBuff *= 0.4f;
-                }
-
-                PuppetEad.Health = (Mathf.Min(options.MaxHeckPuppetHealth.Value, leader.Enemy.Health * options.HeckPuppetHealthScalar.Value));
+                PuppetEad.Health = (Mathf.Min(options.MaxHeckPuppetHealth.Value * Options.MaxHealthScalar.Value, leader.Enemy.Health * (options.HeckPuppetHealthScalar.Value * Options.HealthScalarScalar.Value)));
                 var radianceMod = new EnemyRadiance.Modifier() 
                 {
-                    HealthEnabled = options.HeckPuppetHealthBuffScalar.Value >= 0.0f,
-                    HealthMod = options.HeckPuppetHealthBuffScalar.Value,
-                    DamageEnabled = options.HeckPuppetDamageBuffScalar.Value >= 0.0f,
-                    DamageMod = options.HeckPuppetDamageBuffScalar.Value,
+                    HealthEnabled = healthBuff >= 0.0f,
+                    HealthMod = healthBuff,
+                    DamageEnabled = damageBuff >= 0.0f,
+                    DamageMod = damageBuff,
                     SpeedEnabled = speedBuff >= 0.0f,
-                    SpeedMod = options.HeckPuppetSpeedBuffScalar.Value,
+                    SpeedMod = speedBuff,
                     Multiplier = true,
                 };
 
