@@ -124,7 +124,7 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
                     isWicked = Eid.enemyType == EnemyType.Wicked;
                 }
 
-                return _ExcludedFromHeckPuppetCheat || (isPuppet && Options.SpawnHeckPuppetsForPuppets.Value) || isHeckPuppet || isWicked;
+                return _ExcludedFromHeckPuppetCheat || (isPuppet && !Options.SpawnHeckPuppetsForPuppets.Value) || isHeckPuppet || isWicked;
             }
         }
         public static int MonoRegistrarIdx { get; private set; }
