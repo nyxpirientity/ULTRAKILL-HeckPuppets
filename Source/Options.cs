@@ -22,12 +22,14 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
             public Dictionary<EnemyGameplayRank, HeckPuppetOptions> HeckPuppetsOptions = new Dictionary<EnemyGameplayRank, HeckPuppetOptions>();
         }
         
+        public static ConfigEntry<bool> SpawnHeckPuppetsForPuppets = null;
         public static ConfigEntry<float> HeckPuppetRespawnDuration = null;
         public static Dictionary<StyleRanks, HeckPuppetStyleEntry> HeckPuppetsStyleEntries = new Dictionary<StyleRanks, HeckPuppetStyleEntry>();
 
         public static void Initialize()
         {
             HeckPuppetRespawnDuration = Config.Bind($"Balance", "HeckPuppetRespawnDuration", 7.0f);
+            SpawnHeckPuppetsForPuppets = Config.Bind($"Balance", "SpawnHeckPuppetsForPuppets", true, "Determines if the mod will spawn heck puppets for puppets which are not themselves heck puppets.");
 
             HeckPuppetsStyleEntries = new Dictionary<StyleRanks, HeckPuppetStyleEntry>()
             {

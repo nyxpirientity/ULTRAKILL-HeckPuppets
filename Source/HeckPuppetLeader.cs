@@ -110,7 +110,23 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
         internal Dictionary<StyleRanks, List<ManagedHeckPuppet>> Puppets = new System.Collections.Generic.Dictionary<StyleRanks, List<ManagedHeckPuppet>>();
 
         private bool _ExcludedFromHeckPuppetCheat = false;
-        public bool ExcludedFromHeckPuppetCheat { get => _ExcludedFromHeckPuppetCheat || (Eid.NullInvalid()?.puppet).GetValueOrDefault(true) || Eid.NullInvalid()?.enemyType == EnemyType.Wicked; }
+        public bool ExcludedFromHeckPuppetCheat
+        {
+            get
+            {
+                var isPuppet = false;
+                var isWicked = false;
+                var isHeckPuppet = GetComponent<HeckPuppet>() != null;
+
+                if (Eid != null)
+                {
+                    isPuppet = Eid.puppet;
+                    isWicked = Eid.enemyType == EnemyType.Wicked;
+                }
+
+                return _ExcludedFromHeckPuppetCheat || (isPuppet && Options.SpawnHeckPuppetsForPuppets.Value) || isHeckPuppet || isWicked;
+            }
+        }
         public static int MonoRegistrarIdx { get; private set; }
 
         internal static void Initialize()
