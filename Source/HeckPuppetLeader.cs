@@ -206,7 +206,7 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
                 {
                     foreach (var puppet in puppets)
                     {
-                        if (puppet.IsAlive())
+                        if ((puppet?.IsAlive()).GetValueOrDefault(false))
                         {
                             puppet.HeckPuppet.PrevDead = true;
                             puppet.HeckPuppet?.InstaKill();
