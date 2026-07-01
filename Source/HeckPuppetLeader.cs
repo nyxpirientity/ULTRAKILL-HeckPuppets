@@ -10,7 +10,7 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
     {
         public class ManagedHeckPuppet
         {
-            public HeckPuppet HeckPuppet { get; private set;} = null;
+            public HeckPuppet HeckPuppet { get; private set; } = null;
             public float RespawnDurationScalar = 1.0f;
             public SceneTimeStamp DeathTimestamp = new SceneTimeStamp();
             public GameObject PuppetRootGo { get; private set; } = null;
@@ -33,16 +33,16 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
 
             private static ulong NextHeckPuppetID = 0;
             internal void Spawn(Vector3 position, Quaternion rotation, HeckPuppetLeader leader, StyleRanks styleRank, Options.HeckPuppetStyleEntry.HeckPuppetOptions options, int numHeckPuppets)
-            {   
+            {
                 HeckPuppetID = NextHeckPuppetID;
                 PuppetRootGo = leader.Enemy.PrefabStore.Instances.GetNewInstance();
-                
+
                 numHeckPuppets += 1;
 
                 bool rightSpawn = (numHeckPuppets % 2) == 0;
-                
+
                 var offset = Vector3.Project(((((EnemyUtils.SolveEnemyBounds(leader.Enemy).size * 0.5f) * ((float)numHeckPuppets * 0.5f)))), rotation * ((Vector3.right)));
-             
+
                 offset *= rightSpawn ? 1.0f : -1.0f;
 
                 if (leader.Eid.enemyType == EnemyType.HideousMass)
@@ -55,26 +55,26 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
                 }
 
                 PuppetRootGo.transform.position = position + offset;
-   
+
                 PuppetRootGo.transform.rotation = rotation;
                 PuppetEad = PuppetRootGo.GetComponent<EnemyComponents>() ?? PuppetRootGo.GetComponentInChildren<EnemyComponents>();
                 PuppetRootGo.name = $"{PuppetRootGo.name} (Nyxpiri.HeckPuppet)";
                 Assert.IsNotNull(PuppetEad);
                 Assert.IsNotNull(PuppetEad.gameObject);
-                
+
                 PuppetEad.gameObject.GetComponent<HeckPuppetLeader>().enabled = false;
                 PuppetEad.MarkAsUniquelySolo();
                 PuppetEid = PuppetEad.gameObject.GetComponent<EnemyIdentifier>();
                 PuppetEid.spawnIn = false;
                 PuppetRootGo.SetActive(true);
                 PuppetEad.gameObject.SetActive(true);
-                
+
                 float speedBuff = options.HeckPuppetSpeedBuffScalar.Value * Options.SpeedBuffScalar.Value;
                 float damageBuff = options.HeckPuppetDamageBuffScalar.Value * Options.DamageBuffScalar.Value;
                 float healthBuff = options.HeckPuppetHealthBuffScalar.Value * Options.HealthBuffScalar.Value;
 
                 PuppetEad.Health = (Mathf.Min(options.MaxHeckPuppetHealth.Value * Options.MaxHealthScalar.Value, leader.Enemy.Health * (options.HeckPuppetHealthScalar.Value * Options.HealthScalarScalar.Value)));
-                var radianceMod = new EnemyRadiance.Modifier() 
+                var radianceMod = new EnemyRadiance.Modifier()
                 {
                     HealthEnabled = healthBuff >= 0.0f,
                     HealthMod = healthBuff,
@@ -82,11 +82,11 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
                     DamageMod = damageBuff,
                     SpeedEnabled = speedBuff >= 0.0f,
                     SpeedMod = speedBuff,
-                    Multiplier = true,
+                    CompositionType = EnemyRadiance.Modifier.CompositionTypes.Multiply,
                 };
 
                 PuppetEad.Radiance.AddModifier(radianceMod);
-                
+
                 HeckPuppet = PuppetEad.gameObject.AddComponent<HeckPuppet>();
                 HeckPuppet.RadianceMod = radianceMod;
                 HeckPuppet.Leader = leader;
@@ -163,7 +163,7 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
                 Puppets[styleRank] = mhp;
             }
 
-            GameplayRank = EnemyUtils.GetEnemyGameplayRank(Eid);               
+            GameplayRank = EnemyUtils.GetEnemyGameplayRank(Eid);
 
             Shud = StyleHUD.Instance;
         }
@@ -176,7 +176,7 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
             }
 
             int numHeckPuppets = 0;
-            
+
             for (StyleRanks styleRank = 0; (int)styleRank < Style.NumStyleRanks; styleRank++)
             {
                 List<ManagedHeckPuppet> puppets = Puppets[styleRank];
@@ -186,7 +186,7 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
             for (StyleRanks styleRank = 0; (int)styleRank < Style.NumStyleRanks; styleRank++)
             {
                 List<ManagedHeckPuppet> puppets = Puppets[styleRank];
-                
+
                 if (styleRank > Shud.GetStyleRank())
                 {
                     foreach (var puppet in puppets)
@@ -219,15 +219,15 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
 
 
                 EnemyGameplayRank qualifierGameplayRank = GameplayRank;
-                
+
                 if (Eid.enemyType == EnemyType.Virtue)
                 {
                     qualifierGameplayRank = EnemyGameplayRank.Boss;
                 }
-                
+
                 var options = Options.HeckPuppetsStyleEntries[styleRank].HeckPuppetsOptions[qualifierGameplayRank];
                 int intendedNumPuppets = options.NumHeckPuppets.Value;
-                
+
                 if (puppets.Count > intendedNumPuppets)
                 {
                     for (int i = intendedNumPuppets; i < puppets.Count; i++)
@@ -240,7 +240,7 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
                             puppet.DeathTimestamp.UpdateToNow();
                         }
                     }
-                    
+
                     puppets.RemoveRange(intendedNumPuppets, puppets.Count - intendedNumPuppets);
                 }
                 else if (puppets.Count < intendedNumPuppets)
@@ -250,7 +250,7 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
                         ManagedHeckPuppet managedHeckPuppet = new ManagedHeckPuppet();
                         managedHeckPuppet.DeathTimestamp.TimeStamp = 0.0;
                         puppets.Add(managedHeckPuppet);
-                        managedHeckPuppet.RespawnDurationScalar = options.RespawnDurationScalar.Value;;
+                        managedHeckPuppet.RespawnDurationScalar = options.RespawnDurationScalar.Value; ;
                     }
                 }
 
@@ -260,7 +260,7 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
                     {
                         continue;
                     }
-                    
+
                     if (puppet.DeathTimestamp.TimeSince < Options.HeckPuppetRespawnDuration.Value * puppet.RespawnDurationScalar)
                     {
                         continue;
@@ -277,7 +277,7 @@ namespace Nyxpiri.ULTRAKILL.HeckPuppets
         internal void NotifyPuppetDeath(HeckPuppet puppet, ulong heckPuppetID)
         {
             var puppets = Puppets[puppet.StyleRank];
-            ManagedHeckPuppet mHeckPuppet = puppets.Find((a) => heckPuppetID == a.HeckPuppetID ? true : false );
+            ManagedHeckPuppet mHeckPuppet = puppets.Find((a) => heckPuppetID == a.HeckPuppetID ? true : false);
             mHeckPuppet?.DeathTimestamp.UpdateToNow();
             mHeckPuppet?.Nullify();
         }
